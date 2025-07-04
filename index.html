@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's pAIr! - Współpraca, która zmienia pomysły w rzeczywistość</title>
+    <title>Let's pAIr! - Inicjatywa, która zmienia pomysły w rzeczywistość</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         * {
             margin: 0;
@@ -79,12 +81,16 @@
         }
 
         /* Feature Sections */
-        .warrior-section {
-            background: #ff6b6b;
+        .warrior-wizard-section {
+            background: linear-gradient(45deg, #ff6b6b 50%, #4ecdc4 50%);
         }
 
-        .wizard-section {
-            background: #4ecdc4;
+        .what-is-section {
+            background: #9b59b6;
+        }
+
+        .how-to-join-section {
+            background: #2c3e50;
         }
 
         .ai-section {
@@ -97,6 +103,26 @@
 
         .rules-section {
             background: #6c5ce7;
+        }
+
+        .dual-feature {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 40px;
+            gap: 60px;
+        }
+
+        .warrior-part,
+        .wizard-part {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .wizard-part {
+            flex-direction: row-reverse;
         }
 
         .feature {
@@ -150,6 +176,75 @@
         .feature p {
             font-size: 1.4rem;
             line-height: 1.6;
+        }
+
+        /* What is Let's pAIr Section */
+        .what-is-icon i {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        /* How to Join Section */
+        .how-to-join-content {
+            text-align: center;
+            max-width: 1200px;
+            color: white;
+            padding: 0 40px;
+        }
+
+        .how-to-join-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .step-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .step-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step-icon i {
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover .step-icon i {
+            transform: scale(1.1);
+        }
+
+        .step-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .step-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Rules Section */
@@ -228,32 +323,66 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Navigation Buttons */
+        /* Navigation Buttons - Hidden */
         .nav-button {
+            display: none;
+        }
+
+        /* Scroll Down Arrow */
+        .scroll-arrow {
             position: fixed;
-            right: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 60px;
-            height: 60px;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             cursor: pointer;
-            font-size: 24px;
-            transition: all 0.3s ease;
             z-index: 1000;
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
         }
 
-        .nav-button:hover {
-            background: white;
-            transform: scale(1.1);
+        .scroll-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
         }
 
-        .next-button {
-            bottom: 100px;
+        .scroll-arrow::after {
+            content: '↓';
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
         }
 
-        .prev-button {
-            bottom: 180px;
+        .scroll-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Hide scroll arrow on mobile */
+        @media (max-width: 768px) {
+            .scroll-arrow {
+                display: none;
+            }
         }
 
         /* Section Indicators */
@@ -478,6 +607,17 @@
                 width: 250px;
             }
 
+            .dual-feature {
+                gap: 40px;
+            }
+
+            .warrior-part,
+            .wizard-part {
+                flex-direction: column !important;
+                gap: 40px;
+                text-align: center;
+            }
+
             .feature {
                 flex-direction: column !important;
                 gap: 40px;
@@ -489,12 +629,45 @@
                 height: 300px;
             }
 
+            .icon-placeholder {
+                width: 300px;
+                height: 300px;
+            }
+
             .feature h2 {
                 font-size: 2.5rem;
             }
 
             .feature p {
                 font-size: 1.2rem;
+            }
+
+            .how-to-join-content h2 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-item {
+                padding: 20px 15px;
+            }
+
+            .step-icon i {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .step-item h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .step-item p {
+                font-size: 1rem;
             }
 
             .rules h2 {
@@ -518,19 +691,12 @@
                 font-size: 0.8rem;
             }
 
+            .scroll-arrow {
+                display: none;
+            }
+
             .nav-button {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-                right: 20px;
-            }
-
-            .next-button {
-                bottom: 80px;
-            }
-
-            .prev-button {
-                bottom: 140px;
+                display: none;
             }
         }
 
@@ -560,10 +726,57 @@
                 font-size: 1rem !important;
             }
             
+            .dual-feature {
+                gap: 20px !important;
+                padding: 0 20px;
+            }
+            
+            .warrior-part,
+            .wizard-part {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
             .feature {
                 flex-direction: column !important;
                 gap: 20px !important;
                 padding: 0 20px;
+            }
+            
+            .icon-placeholder {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            
+            .how-to-join-content {
+                max-width: 90% !important;
+            }
+            
+            .how-to-join-content h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .steps-grid {
+                gap: 15px !important;
+            }
+            
+            .step-item {
+                padding: 10px !important;
+            }
+            
+            .step-icon i {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            
+            .step-item h3 {
+                font-size: 1rem !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .step-item p {
+                font-size: 0.8rem !important;
             }
             
             .feature-image img {
@@ -622,19 +835,12 @@
                 font-size: 1rem !important;
             }
             
+            .scroll-arrow {
+                display: none;
+            }
+            
             .nav-button {
-                width: 40px !important;
-                height: 40px !important;
-                font-size: 16px !important;
-                right: 15px;
-            }
-            
-            .next-button {
-                bottom: 60px;
-            }
-            
-            .prev-button {
-                bottom: 110px;
+                display: none;
             }
             
             .section-indicators {
@@ -673,8 +879,49 @@
                 font-size: 0.9rem !important;
             }
             
+            .dual-feature {
+                gap: 15px !important;
+            }
+            
+            .warrior-part,
+            .wizard-part {
+                gap: 15px !important;
+            }
+            
             .feature {
                 gap: 15px !important;
+            }
+            
+            .icon-placeholder {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            .how-to-join-content h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 10px !important;
+            }
+            
+            .steps-grid {
+                gap: 10px !important;
+            }
+            
+            .step-item {
+                padding: 8px !important;
+            }
+            
+            .step-icon i {
+                width: 30px !important;
+                height: 30px !important;
+            }
+            
+            .step-item h3 {
+                font-size: 0.9rem !important;
+                margin-bottom: 5px !important;
+            }
+            
+            .step-item p {
+                font-size: 0.7rem !important;
             }
             
             .feature-image img {
@@ -729,6 +976,82 @@
                 font-size: 0.9rem !important;
             }
         }
+
+        /* Responsive styles for new sections */
+        @media (min-width: 1200px) and (max-width: 1900px) {
+            .how-to-join-content h2 {
+                font-size: 3rem;
+                margin-bottom: 40px;
+            }
+            
+            .steps-grid {
+                gap: 30px;
+            }
+            
+            .step-item {
+                padding: 25px 15px;
+            }
+            
+            .step-item h3 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+            
+            .step-item p {
+                font-size: 0.95rem;
+            }
+            
+            .icon-placeholder {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        @media (min-width: 1901px) {
+            .how-to-join-content h2 {
+                font-size: 2.8rem;
+                margin-bottom: 35px;
+            }
+            
+            .steps-grid {
+                gap: 25px;
+            }
+            
+            .step-item {
+                padding: 20px 15px;
+            }
+            
+            .step-item h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            
+            .step-item p {
+                font-size: 0.9rem;
+            }
+            
+            .icon-placeholder {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .how-to-join-content h2 {
+                font-size: 3rem;
+                margin-bottom: 35px;
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .icon-placeholder {
+                width: 400px;
+                height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -740,49 +1063,126 @@
         <div class="indicator" data-section="3"></div>
         <div class="indicator" data-section="4"></div>
         <div class="indicator" data-section="5"></div>
+        <div class="indicator" data-section="6"></div>
     </div>
 
-    <!-- Navigation Buttons -->
-    <button class="nav-button prev-button" onclick="previousSection()">↑</button>
-    <button class="nav-button next-button" onclick="nextSection()">↓</button>
+    <!-- Scroll Down Arrow -->
+    <div class="scroll-arrow" onclick="nextSection()"></div>
 
     <!-- Hero Section -->
     <section class="section hero" id="section-0">
         <div class="hero-content">
             <img src="images/logo.png" alt="Let's pAIr Logo" class="logo">
-            <p>Współpraca, która zamienia pomysły w rzeczywistość. Nie pozwól, aby Twoje genialne idee trafiły do szuflady!</p>
-            <button onclick="nextSection()" class="cta-button">Let's pair!</button>
+            <p>Inicjatywa, która zamienia pomysły w rzeczywistość. Nie pozwól, aby Twoje genialne idee trafiły do szuflady! Nie czekaj, działaj!</p>
+            <button onclick="nextSection()" class="cta-button">Zobacz więcej!</button>
         </div>
     </section>
 
-    <!-- Warrior Section -->
-    <section class="section warrior-section" id="section-1">
-        <div class="feature">
-            <div class="feature-image">
-                <img src="images/warrior.png" alt="Warrior">
+    <!-- Warrior & Wizard Section -->
+    <section class="section warrior-wizard-section" id="section-1">
+        <div class="dual-feature">
+            <div class="feature warrior-part">
+                <div class="feature-image">
+                    <img src="images/warrior.png" alt="Warrior">
+                </div>
+                <div class="feature-content">
+                    <h2>Masz pomysł?</h2>
+                    <p>Masz pomysł, z którym bijesz się po głowie i nie wiesz, czy dasz radę podbić nim świat? Nie musisz walczyć sam! Znajdź partnera, który pomoże Ci przekuć marzenia w rzeczywistość.</p>
+                </div>
             </div>
-            <div class="feature-content">
-                <h2>Masz pomysł?</h2>
-                <p>Masz pomysł, z którym bijesz się po głowie i nie wiesz, czy dasz radę podbić nim świat? Nie musisz walczyć sam! Znajdź partnera, który pomoże Ci przekuć marzenia w rzeczywistość.</p>
+            <div class="feature wizard-part">
+                <div class="feature-image">
+                    <img src="images/wizzard.png" alt="Wizard">
+                </div>
+                <div class="feature-content">
+                    <h2>Uwielbiasz magię kodu?</h2>
+                    <p>Uwielbiasz sztukę automagiczną i nie boisz się technologicznych wyzwań? Chcesz sprawdzić swoją potęgę? Połącz siły z innymi czarodziejami kodu i stwórzcie coś niesamowitego!</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Wizard Section -->
-    <section class="section wizard-section" id="section-2">
+    <!-- What is Let's pAIr Section -->
+    <section class="section what-is-section" id="section-2">
         <div class="feature">
             <div class="feature-image">
-                <img src="images/wizzard.png" alt="Wizard">
+                <div class="icon-placeholder what-is-icon">
+                    <i data-lucide="users-round" style="width: 300px; height: 300px; color: white;"></i>
+                </div>
             </div>
             <div class="feature-content">
-                <h2>Uwielbiasz magię kodu?</h2>
-                <p>Uwielbiasz sztukę automagiczną i nie boisz się technologicznych wyzwań? Chcesz sprawdzić swoją potęgę? Połącz siły z innymi czarodziejami kodu i stwórzcie coś niesamowitego!</p>
+                <h2>Czym jest Let's pAIr?</h2>
+                <p>Jest to inicjatywa mająca na celu połączyć ludzi z pomysłami i ludzi, którzy potrafią je spełnić. Tworzymy przestrzeń, gdzie kreatywność spotyka się z umiejętnościami, a marzenia stają się rzeczywistością.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section class="section how-to-join-section" id="section-3">
+        <div class="how-to-join-content">
+            <h2>Jak dołączyć do rajdu?</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="message-circle" style="width: 80px; height: 80px; color: #5865F2;"></i>
+                    </div>
+                    <h3>Dołącz na Discord</h3>
+                    <p>Pierwszym krokiem jest dołączenie do naszej społeczności na serwerze Discord</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="hand-heart" style="width: 80px; height: 80px; color: #FFD700;"></i>
+                    </div>
+                    <h3>Przywitaj się na kanale Tawerna</h3>
+                    <p>Przedstaw się społeczności na kanale Tawerna i poznaj innych członków</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="clipboard-list" style="width: 80px; height: 80px; color: #4ecdc4;"></i>
+                    </div>
+                    <h3>Dodaj zlecenie lub dołącz do zespołu</h3>
+                    <p>Stwórz własne zlecenie lub połącz się z kimś w zespół i stawcie czoła wyzwaniom</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="users" style="width: 80px; height: 80px; color: #45b7d1;"></i>
+                    </div>
+                    <h3>Pracuj w zespole min. 2 osoby + AI</h3>
+                    <p>Każdy zespół składa się z co najmniej 2 osób wspomaganych sztuczną inteligencją</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="lightbulb" style="width: 80px; height: 80px; color: #FFD700;"></i>
+                    </div>
+                    <h3>Dowolny pomysł, dowolna technologia</h3>
+                    <p>Nie ma ograniczeń - używaj technologii, które znasz i realizuj pomysły, które Cię inspirują</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="calendar-days" style="width: 80px; height: 80px; color: #ff6b6b;"></i>
+                    </div>
+                    <h3>2-tygodniowe rajdy</h3>
+                    <p>Każdy rajd trwa dokładnie 2 tygodnie - idealny czas na stworzenie czegoś niesamowitego</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i data-lucide="trophy" style="width: 80px; height: 80px; color: #FFD700;"></i>
+                    </div>
+                    <h3>Pochwał się odkrytymi skarbami</h3>
+                    <p>Po zakończeniu rajdu prezentujemy nasze osiągnięcia i dzielimy się odkrytymi skarbami</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- AI Section -->
-    <section class="section ai-section" id="section-3">
+    <section class="section ai-section" id="section-4">
         <div class="feature">
             <div class="feature-image">
                 <img src="images/ai.png" alt="AI">
@@ -795,7 +1195,7 @@
     </section>
 
     <!-- Dragon Section -->
-    <section class="section dragon-section" id="section-4">
+    <section class="section dragon-section" id="section-5">
         <div class="feature">
             <div class="feature-image">
                 <img src="images/dragon.png" alt="Dragon">
@@ -808,7 +1208,7 @@
     </section>
 
     <!-- Rules Section -->
-    <section class="section rules-section" id="section-5">
+    <section class="section rules-section" id="section-6">
         <div class="rules-content">
             <h2>Dołącz do społeczności!</h2>
             <p>Zbuduj drużynę z co najmniej dwóch osób i weź udział w dwutygodniowym rajdzie tworzenia. Wspólnie osiągniemy więcej!</p>
@@ -833,18 +1233,18 @@
                     </div>
                 </div>
             </div>
-            <a href="https://discord.gg/your-discord-link" class="discord-button" target="_blank">
+            <a href="https://discord.gg/VF5gTnvNjD" class="discord-button" target="_blank">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px; vertical-align: middle;">
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                 </svg>
-                Dołącz na Discord
+                Dołącz na Discord Let's pAIr!
             </a>
         </div>
     </section>
 
     <script>
         let currentSection = 0;
-        const totalSections = 6;
+        const totalSections = 7;
 
         function updateIndicators() {
             document.querySelectorAll('.indicator').forEach((indicator, index) => {
@@ -855,6 +1255,14 @@
             document.querySelectorAll('.section').forEach((section, index) => {
                 section.classList.toggle('active', index === currentSection);
             });
+
+            // Update scroll arrow visibility
+            const scrollArrow = document.querySelector('.scroll-arrow');
+            if (currentSection === totalSections - 1) {
+                scrollArrow.classList.add('hidden');
+            } else {
+                scrollArrow.classList.remove('hidden');
+            }
         }
 
         function scrollToSection(sectionIndex) {
@@ -898,9 +1306,11 @@
             }
         });
 
-        // Wheel navigation
+        // Wheel navigation (desktop only)
         let isScrolling = false;
-        document.addEventListener('wheel', (e) => {
+        function handleWheelNavigation(e) {
+            if (window.innerWidth <= 768) return; // Disable on mobile
+            
             if (isScrolling) return;
             
             isScrolling = true;
@@ -911,26 +1321,11 @@
             } else {
                 previousSection();
             }
-        });
+        }
 
-        // Touch navigation for mobile
-        let touchStartY = 0;
-        document.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        });
+        document.addEventListener('wheel', handleWheelNavigation);
 
-        document.addEventListener('touchend', (e) => {
-            const touchEndY = e.changedTouches[0].clientY;
-            const diff = touchStartY - touchEndY;
-
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    nextSection();
-                } else {
-                    previousSection();
-                }
-            }
-        });
+        // Touch navigation removed - let users scroll naturally on mobile
 
         // Scroll detection for browser scrollbar
         function detectCurrentSection() {
@@ -991,6 +1386,9 @@
         // Update countdown every second
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
