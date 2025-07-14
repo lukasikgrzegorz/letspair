@@ -19,6 +19,9 @@ Masz pomysł, ale nie wiesz jak go zrealizować? Znajdź partnera technicznego!
 ### 🧙‍♂️ Wizards (Programiści)
 Uwielbiasz kodowanie i szukasz ciekawych projektów? Dołącz do drużyny!
 
+### 🏹 Adepci (Chcący się rozwijać)
+Lubisz wyzwania i chcesz zdobywać nową wiedzę? Precyzyjnie celuj w nowe umiejętności i rozwijaj się z każdym projektem!
+
 ## Jak dołączyć?
 
 1. **Dołącz na Discord** - [https://discord.gg/VF5gTnvNjD](https://discord.gg/VF5gTnvNjD)

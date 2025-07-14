@@ -117,6 +117,10 @@ body {
     background: linear-gradient(45deg, #ff6b6b 50%, #4ecdc4 50%);
 }
 
+.elf-section {
+    background: #27ae60;
+}
+
 .what-is-section {
     background: #9b59b6;
 }
@@ -725,27 +729,29 @@ body {
         font-size: 1.4rem;
     }
     
-    .countdown-item label {
-        font-size: 0.8rem;
-    }
-
-    .scroll-arrow {
-        right: 15px;
-        bottom: 15px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .scroll-arrow::after {
-        font-size: 18px;
-    }
-
-    .nav-button {
-        display: none;
+    .discord-button {
+        padding: 12px 30px;
+        font-size: 1rem;
     }
 }
 
-/* Very low height screens */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .how-to-join-content h2 {
+        font-size: 3rem;
+        margin-bottom: 35px;
+    }
+    
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .icon-placeholder {
+        width: 400px;
+        height: 400px;
+    }
+}
+
 @media (max-height: 600px) {
     .section {
         min-height: auto;
@@ -1065,23 +1071,6 @@ body {
     
     .step-item p {
         font-size: 0.9rem;
-    }
-    
-    .icon-placeholder {
-        width: 400px;
-        height: 400px;
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-    .how-to-join-content h2 {
-        font-size: 3rem;
-        margin-bottom: 35px;
-    }
-    
-    .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
     }
     
     .icon-placeholder {
