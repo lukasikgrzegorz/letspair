@@ -258,8 +258,8 @@
         let sectionScrollState = {}; // Track scroll state for each section
 
         function nextSection() {
-            // Special behavior for warrior-wizard section (section 1), elf section (section 2) and how-to-join section (section 4)
-            if (currentSection === 1 || currentSection === 2 || currentSection === 4) {
+            // Special behavior for warrior-wizard section (section 1) and how-to-join section (section 4)
+            if (currentSection === 1 || currentSection === 4) {
                 // Check if we've already scrolled to the bottom of this section
                 if (!sectionScrollState[currentSection]) {
                     // First click - scroll to the end of current section
@@ -283,8 +283,8 @@
         }
 
         function previousSection() {
-            // Special behavior for warrior-wizard section (section 1), elf section (section 2) and how-to-join section (section 4)
-            if (currentSection === 1 || currentSection === 2 || currentSection === 4) {
+            // Special behavior for warrior-wizard section (section 1) and how-to-join section (section 4)
+            if (currentSection === 1 || currentSection === 4) {
                 // Scroll up by 100px instead of going to previous section
                 window.scrollBy({
                     top: -100,
